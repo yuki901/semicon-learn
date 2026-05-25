@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  /* Paper-like cream background, charcoal ink, warm accent */
+  --paper: #f6f1e7;
+  --paper-edge: #ece4d3;
+  --ink: #1f1d1a;
+  --ink-soft: #5b554c;
+  --ink-muted: #8a8377;
+  --rule: #d9d0bd;
+  --accent: #9a4a1f; /* burnt sienna, like a hot crucible */
+  --accent-soft: #c97a4b;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-edge: var(--paper-edge);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.7;
+  font-feature-settings: "kern", "liga", "onum";
+}
+
+/* Long-form prose defaults */
+.prose-essay h1,
+.prose-essay h2,
+.prose-essay h3 {
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.prose-essay h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.prose-essay h2 {
+  font-size: 1.8rem;
+  line-height: 1.25;
+  font-weight: 500;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.prose-essay h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-essay p {
+  margin: 1rem 0;
+  color: var(--ink);
+}
+
+.prose-essay a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.prose-essay a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.prose-essay em {
+  font-style: italic;
+}
+
+.prose-essay strong {
+  font-weight: 600;
+}
+
+.prose-essay code,
+.prose-essay kbd {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  background: var(--paper-edge);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+}
+
+.prose-essay figcaption {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.prose-essay .byline,
+.prose-essay .dateline {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.prose-essay hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3rem auto;
+  width: 6rem;
+}
+
+/* Widget surface */
+.widget-surface {
+  background: #fbf7ee;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+
+.widget-surface .controls {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Slider — paper-friendly, generously sized for touch */
+input[type="range"].paper-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: var(--rule);
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  margin: 20px 0;
+  cursor: grab;
+}
+
+input[type="range"].paper-range:active {
+  cursor: grabbing;
+}
+
+input[type="range"].paper-range::-webkit-slider-runnable-track {
+  height: 8px;
+  background: var(--rule);
+  border-radius: 5px;
+}
+
+input[type="range"].paper-range::-moz-range-track {
+  height: 8px;
+  background: var(--rule);
+  border-radius: 5px;
+}
+
+input[type="range"].paper-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  margin-top: -16px; /* center on 8px track */
+  border-radius: 50%;
+  background: var(--ink);
+  border: 4px solid var(--paper);
+  cursor: grab;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1.5px var(--rule);
+  transition:
+    transform 100ms ease,
+    background-color 100ms ease;
+}
+
+input[type="range"].paper-range::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: var(--accent);
+}
+
+input[type="range"].paper-range::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+  background: var(--accent);
+  cursor: grabbing;
+}
+
+input[type="range"].paper-range::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 4px solid var(--paper);
+  cursor: grab;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1.5px var(--rule);
+}
+
+input[type="range"].paper-range::-moz-range-thumb:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
