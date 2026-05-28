@@ -7,10 +7,24 @@ import DefectMapWidget from "./components/DefectMapWidget";
 import SegregationWidget from "./components/SegregationWidget";
 import WaferScaleWidget from "./components/WaferScaleWidget";
 import SliceWidget from "./components/SliceWidget";
+import TableOfContents from "./components/TableOfContents";
+
+const tocEntries = [
+  { id: "ch-1", label: "1. The silicon you are touching" },
+  { id: "ch-2", label: "2. Why single crystal matters" },
+  { id: "ch-3", label: "3. Melt it, dip it, pull it slowly" },
+  { id: "ch-4", label: "4. Inside the melt" },
+  { id: "ch-5", label: "5. Pull rate × rotation" },
+  { id: "ch-6", label: "6. Impurities" },
+  { id: "ch-7", label: "7. 100 mm → 300 mm" },
+  { id: "ch-8", label: "8. After the boule" },
+];
 
 export default function Home() {
   return (
-    <main className="prose-essay mx-auto max-w-[42rem] px-6 py-24">
+    <>
+      <TableOfContents entries={tocEntries} />
+      <main className="prose-essay mx-auto max-w-[42rem] px-6 py-24">
       <header className="mb-12">
         <p className="dateline mb-4">An interactive essay · part 1 of a series</p>
         <h1>Silicon, pulled slowly</h1>
@@ -41,7 +55,7 @@ export default function Home() {
 
       <hr />
 
-      <section>
+      <section id="ch-1">
         <h2>1. The silicon you are touching right now</h2>
         <p>
           Glass is silicon and oxygen, arranged at random. Sand is mostly the
@@ -65,7 +79,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-2">
         <h2>2. Why &ldquo;single crystal&rdquo; matters</h2>
         <p>
           Imagine you are an electron, and your job is to walk across a piece
@@ -96,7 +110,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-3">
         <h2>3. Melt it, dip it, pull it slowly</h2>
         <p>
           Strip away the engineering and what&rsquo;s left is almost
@@ -128,7 +142,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-4">
         <h2>4. What&rsquo;s happening inside the melt</h2>
         <p>
           The crucible is not a calm pool. It is closer to a thunderstorm.
@@ -161,7 +175,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-5">
         <h2>5. Pull rate × rotation: the trade-off</h2>
         <p>
           With two knobs instead of one, the engineering space opens up. Pull
@@ -195,7 +209,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-6">
         <h2>6. Impurities: intentional and uninvited</h2>
         <p>
           Pure silicon is a poor semiconductor — too pure, in a way. To make
@@ -235,7 +249,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-7">
         <h2>7. From 100&nbsp;mm to 300&nbsp;mm (and why 450&nbsp;mm stalled)</h2>
         <p>
           The economics of chipmaking are dominated by the area of the
@@ -273,7 +287,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section>
+      <section id="ch-8">
         <h2>8. After the boule</h2>
         <p>
           When pulling finishes, the boule is allowed to cool slowly for a
@@ -308,6 +322,7 @@ export default function Home() {
       <footer className="mt-24 text-center">
         <p className="byline">A work in progress. Feedback welcome.</p>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }

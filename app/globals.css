@@ -88,6 +88,23 @@ body {
   border-bottom-color: var(--accent);
 }
 
+/* TOC links live outside .prose-essay but reset just in case */
+.toc a,
+.toc a:hover {
+  color: inherit;
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+.toc {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
 .prose-essay em {
   font-style: italic;
 }
